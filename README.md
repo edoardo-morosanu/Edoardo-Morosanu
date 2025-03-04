@@ -61,7 +61,10 @@ root@github:~$ _
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Edoardo-Morosanu&layout=compact&theme=merko)
 
 <!-- Visitor Counter -->
-![Visitor Count](https://profile-counter.glitch.me/Edoardo-Morosanu/count.svg)
+## Certificates
+<a href="https://www.credly.com/users/edoardo-andrei-morosanu">
+    <img src="https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png" width="150" height="150" alt="GitHub Foundations Certificate">
+</a>
 
 ## 🛠️ My Projects
 <!-- You can list some of your key projects here with links -->
