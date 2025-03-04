@@ -62,7 +62,7 @@ root@github:~$ _
 
 <!-- Visitor Counter -->
 ## Certificates
-<a href="https://www.credly.com/users/edoardo-andrei-morosanu">
+<a href="https://www.credly.com/badges/52a39e3c-c542-4ddd-8b62-30ab3829eec0">
     <img src="https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png" width="150" height="150" alt="GitHub Foundations Certificate">
 </a>
 
