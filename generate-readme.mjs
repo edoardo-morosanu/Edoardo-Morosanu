@@ -66,34 +66,45 @@ async function calculateTotalCommits(data, cutoffDate) {
 
   // Try to fetch pending repos again
   if (pendingRepos.length > 0) {
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait 2 seconds before retrying
+    for (let attempt = 1; attempt <= 5; attempt++) {
+      if (pendingRepos.length === 0) break;
 
-    for (const repo of pendingRepos) {
-      try {
-        const response = await octokit.rest.repos.getContributorsStats({
-          owner: repo.owner.login,
-          repo: repo.name,
-        });
+      const waitTime = attempt * 2000; // 2s, 4s, 6s, 8s, 10s
+      await new Promise((resolve) => setTimeout(resolve, waitTime));
 
-        if (Array.isArray(response.data)) {
-          const userStats = response.data.find(
-            (c) => c.author?.login === username
-          );
-          if (userStats) {
-            const commits = cutoffDate
-              ? userStats.weeks
-                  .filter((w) => new Date(w.w * 1000) > cutoffDate)
-                  .reduce((sum, w) => sum + w.c, 0)
-              : userStats.total;
+      const stillPending = [];
+      for (const repo of pendingRepos) {
+        try {
+          const response = await octokit.rest.repos.getContributorsStats({
+            owner: repo.owner.login,
+            repo: repo.name,
+          });
 
-            totalCommits += commits;
+          if (response.status === 202) {
+            stillPending.push(repo);
+            continue;
           }
+
+          if (Array.isArray(response.data)) {
+            const userStats = response.data.find(
+              (c) => c.author?.login === username
+            );
+            if (userStats) {
+              const commits = cutoffDate
+                ? userStats.weeks
+                    .filter((w) => new Date(w.w * 1000) > cutoffDate)
+                    .reduce((sum, w) => sum + w.c, 0)
+                : userStats.total;
+              totalCommits += commits;
+            }
+          }
+        } catch (error) {
+          // Silently continue on error
         }
-      } catch (error) {
-        // Silently continue on error
+        await new Promise((resolve) => setTimeout(resolve, 100));
       }
 
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      pendingRepos = stillPending;
     }
   }
 
