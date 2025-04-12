@@ -16,7 +16,7 @@ Languages: Rust, Python,
            CSS, PHP
 Learning: Go
 Hobbies: Playing guitar, gaming
-Commits: 197
+Commits: 210
 Stars: 2
 ```
 
