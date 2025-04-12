@@ -3,26 +3,26 @@
 ```
 <img align="left" src="assets/image.png" width="300" style="margin-right: 15px; margin-bottom: 10px; max-width: 100%; height: auto;" />
 
-```c
-edoardo-morosanu@github.com
--------------------------
-OS: Arch Linux x86_64
-Shell: zsh 5.8
-Pronouns: He/Him
-Location: Netherlands
-Frameworks: Vue.js
-Languages: Rust, Python,
-           Java, JS, HTML,
-           CSS, PHP
-Learning: Go
-Hobbies: Playing guitar, gaming
-Commits: 193
-Stars: 2
-```
+<div style="clear: both;"></div> <!-- This clears the left-aligned image -->
 
-<div style="clear: both;"></div>
-
-## Stats
+<div style="clear: both; margin-top: 20px;"> <!-- Stats container -->
+  <pre>
+  edoardo-morosanu@github.com
+  -------------------------
+  OS: Arch Linux x86_64
+  Shell: zsh 5.8
+  Pronouns: He/Him
+  Location: Netherlands
+  Frameworks: Vue.js
+  Languages: Rust, Python,
+             Java, JS, HTML,
+             CSS, PHP
+  Learning: Go
+  Hobbies: Playing guitar, gaming
+  Commits: 212
+  Stars: 2
+  </pre>
+</div>
 
 <div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
   <img src="https://awesome-github-stats.azurewebsites.net/user-stats/edoardo-morosanu?cardType=level-alternate&theme=radical&preferLogin=false&Border=DD272700" width="48%" style="min-width: 300px; max-width: 100%;" />
