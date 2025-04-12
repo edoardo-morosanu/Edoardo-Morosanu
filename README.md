@@ -22,8 +22,6 @@ Stars: 2
 
 <div style="clear: both;"></div>
 
-## Stats
-
 <div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
   <img src="https://awesome-github-stats.azurewebsites.net/user-stats/edoardo-morosanu?cardType=level-alternate&theme=radical&preferLogin=false&Border=DD272700" width="48%" style="min-width: 300px; max-width: 100%;" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=edoardo-morosanu&theme=radical&show_icons=true&hide_border=true&layout=compact" width="48%" style="min-width: 300px; max-width: 100%;" />
