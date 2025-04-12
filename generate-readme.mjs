@@ -25,32 +25,78 @@ function calculateTotalStars(data) {
 
 async function calculateTotalCommits(data, cutoffDate) {
   const username = process.env.GH_USERNAME;
-  const requests = data
-    .filter((repo) => !cutoffDate || new Date(repo.updated_at) > cutoffDate)
-    .map((repo) =>
-      octokit.rest.repos.getContributorsStats({
+  let totalCommits = 0;
+  let pendingRepos = [];
+
+  for (const repo of data.filter(
+    (repo) => !cutoffDate || new Date(repo.updated_at) > cutoffDate
+  )) {
+    try {
+      const response = await octokit.rest.repos.getContributorsStats({
         owner: repo.owner.login,
         repo: repo.name,
-      })
-    );
+      });
 
-  const repos = await Promise.allSettled(requests);
-
-  let totalCommits = 0;
-  for (const result of repos) {
-    if (result.status === "fulfilled") {
-      const contributors = result.value.data;
-      const userStats = contributors.find((c) => c.author?.login === username);
-      if (userStats) {
-        const commits = cutoffDate
-          ? userStats.weeks
-              .filter((w) => new Date(w.w * 1000) > cutoffDate)
-              .reduce((sum, w) => sum + w.c, 0)
-          : userStats.total;
-        totalCommits += commits;
+      if (response.status === 202) {
+        pendingRepos.push(repo);
+        continue;
       }
+
+      if (Array.isArray(response.data)) {
+        const userStats = response.data.find(
+          (c) => c.author?.login === username
+        );
+        if (userStats) {
+          const commits = cutoffDate
+            ? userStats.weeks
+                .filter((w) => new Date(w.w * 1000) > cutoffDate)
+                .reduce((sum, w) => sum + w.c, 0)
+            : userStats.total;
+
+          totalCommits += commits;
+        }
+      }
+    } catch (error) {
+      // Silently continue on error
+    }
+
+    // Add a small delay to avoid rate limiting
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  }
+
+  // Try to fetch pending repos again
+  if (pendingRepos.length > 0) {
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait 2 seconds before retrying
+
+    for (const repo of pendingRepos) {
+      try {
+        const response = await octokit.rest.repos.getContributorsStats({
+          owner: repo.owner.login,
+          repo: repo.name,
+        });
+
+        if (Array.isArray(response.data)) {
+          const userStats = response.data.find(
+            (c) => c.author?.login === username
+          );
+          if (userStats) {
+            const commits = cutoffDate
+              ? userStats.weeks
+                  .filter((w) => new Date(w.w * 1000) > cutoffDate)
+                  .reduce((sum, w) => sum + w.c, 0)
+              : userStats.total;
+
+            totalCommits += commits;
+          }
+        }
+      } catch (error) {
+        // Silently continue on error
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
   }
+
   return totalCommits;
 }
 

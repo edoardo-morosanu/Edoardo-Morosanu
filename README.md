@@ -1,5 +1,3 @@
-# Edoardo Morosanu
-
 ```zsh
 > neofetch
 ```
@@ -18,8 +16,8 @@ Languages: Rust, Python,
            CSS, PHP
 Learning: Go
 Hobbies: Playing guitar, gaming
-Commits: 246
-Stars: 136
+Commits: 197
+Stars: 2
 ```
 
 <div style="clear: both;"></div>
