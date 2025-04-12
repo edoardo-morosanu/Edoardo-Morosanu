@@ -1,7 +1,7 @@
-import { config } from 'dotenv';
-import Mustache from 'mustache';
-import fs from 'node:fs';
-import { Octokit } from '@octokit/rest';
+import { config } from "dotenv";
+import Mustache from "mustache";
+import fs from "node:fs";
+import { Octokit } from "@octokit/rest";
 
 config(); // Loads environment variables
 
@@ -10,7 +10,6 @@ const octokit = new Octokit({
   userAgent: "readme-generator",
   baseUrl: "https://api.github.com",
 });
-
 
 async function grabDataFromAllRepositories() {
   const options = {

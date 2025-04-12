@@ -7,20 +7,23 @@ on:
   schedule:
     - cron: "0 7-23/2 * * *"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       # Checkout project source code
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Use NodeJs 14.x
-        uses: actions/setup-node@v1
+      - name: Use NodeJs 23.x
+        uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "23.x"
 
       - name: Cache npm dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -42,4 +45,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add README.md
           git commit -m "Update README [auto]" || echo "No changes to commit"
-          git push https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_ACCESS_TOKEN }}@github.com/${{ secrets.GH_USERNAME }}/Edoardo-Morosanu.git
+          git push
