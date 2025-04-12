@@ -1,10 +1,11 @@
 {
+  "type": "module",
   "name": "edoardo-morosanu",
   "version": "1.0.0",
   "description": "```zsh\r > neofetch\r ```",
-  "main": "generate-readme.js",
+  "main": "generate-readme.mjs",
   "scripts": {
-    "start": "node generate-readme.js"
+    "start": "node generate-readme.mjs"
   },
   "keywords": [],
   "author": "",

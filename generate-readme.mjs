@@ -1,13 +1,16 @@
-require("dotenv").config();
-const Mustache = require("mustache");
-const fs = require("node:fs");
-const { Octokit } = require("@octokit/rest");
+import { config } from 'dotenv';
+import Mustache from 'mustache';
+import fs from 'node:fs';
+import { Octokit } from '@octokit/rest';
+
+config(); // Loads environment variables
 
 const octokit = new Octokit({
   auth: process.env.GH_ACCESS_TOKEN,
   userAgent: "readme-generator",
   baseUrl: "https://api.github.com",
 });
+
 
 async function grabDataFromAllRepositories() {
   const options = {
