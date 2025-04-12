@@ -29,7 +29,7 @@ async function calculateTotalCommits(data, cutoffDate) {
     .filter((repo) => !cutoffDate || new Date(repo.updated_at) > cutoffDate)
     .map((repo) =>
       octokit.rest.repos.getContributorsStats({
-        owner: username,
+        owner: repo.owner.login,
         repo: repo.name,
       })
     );
