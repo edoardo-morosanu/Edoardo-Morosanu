@@ -19,7 +19,7 @@
              CSS, PHP
   Learning: Go
   Hobbies: Playing guitar, gaming
-  Commits: 216
+  Commits: 181
   Stars: 2
   </pre>
 </div>
