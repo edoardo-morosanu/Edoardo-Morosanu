@@ -1,7 +1,6 @@
 ```zsh
 > neofetch
 ```
-
 <img align="left" src="assets/image.png" width="300" style="margin-right: 15px; margin-bottom: 10px; max-width: 100%; height: auto;" />
 
 <div style="clear: both;"></div> <!-- This clears the left-aligned image -->
@@ -15,10 +14,8 @@
   Pronouns: He/Him
   Location: Netherlands
   Frameworks: Vue.js
-  Languages: Rust, Python,
-             Java, JS, HTML,
-             CSS, PHP
-  Learning: Go
+  Languages: Rust, Python, Java, JS, HTML, CSS, PHP
+  Learning: Go, React
   Hobbies: Playing guitar, gaming
   Commits: 223
   Stars: 2
@@ -35,7 +32,6 @@
 </div>
 
 ## **Certificates**
-
 <div align="center">
   <a href="https://www.credly.com/badges/52a39e3c-c542-4ddd-8b62-30ab3829eec0">
     <img src="https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png" width="150" height="150" alt="GitHub Foundations Certificate" style="max-width: 100%; height: auto;">
@@ -43,7 +39,6 @@
 </div>
 
 ## **📫 Connect with me:**
-
 <div align="center">
   <a href="https://www.linkedin.com/in/edoardo-morosanu/">
     <img src="https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn"/>
