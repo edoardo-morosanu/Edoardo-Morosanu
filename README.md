@@ -14,11 +14,12 @@
   Pronouns: He/Him
   Location: Netherlands
   Frameworks: Vue.js
-  Languages: Rust, Python, Java, JS, 
+  Languages: Rust, Python, 
+             Java, JS, 
              HTML, CSS, PHP
   Learning: Go, React
   Hobbies: Playing guitar, gaming
-  Commits: 225
+  Commits: 226
   Stars: 2
   </pre>
 </div>
