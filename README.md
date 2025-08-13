@@ -20,7 +20,7 @@
   Learning: Go, React
   Hobbies: Playing guitar, gaming
   Commits: 314
-  Stars: 3
+  Stars: 2
   </pre>
 </div>
 
