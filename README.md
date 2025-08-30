@@ -1,6 +1,8 @@
 ```zsh
 > neofetch
 ```
+<img align="left" src="assets/image.png" width="300" style="margin-right: 15px; margin-bottom: 10px; max-width: 100%; height: auto;" />
+
 <div style="clear: both;"></div> <!-- This clears the left-aligned image -->
 
 <div style="clear: both; margin-top: 20px;"> <!-- Stats container -->
@@ -17,7 +19,7 @@
              HTML, CSS, PHP
   Learning: Go, React
   Hobbies: Playing guitar, gaming
-  Commits: 314
+  Commits: 315
   Stars: 2
   </pre>
 </div>
